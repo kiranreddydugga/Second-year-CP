@@ -15,9 +15,9 @@ def dicetoorderedhand(a, b, c):
 	if a == max(a,b,c):
 		num = max(b,c)
 	elif b == max(a,b,c):
-		num = (a,c)
+		num = max(a,c)
 	else:
 		num = max(a,b)
-	return max(a,b,c)*100 + num *10 +min(a,b,c)
+	return max(a,b,c) * 100 + num * 10 + min(a,b,c)
         
 	
