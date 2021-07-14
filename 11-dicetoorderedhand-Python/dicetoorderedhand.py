@@ -12,4 +12,12 @@
 
 def dicetoorderedhand(a, b, c):
 	# your code goes here
-	pass
+	if a == max(a,b,c):
+		num = max(b,c)
+	elif b == max(a,b,c):
+		num = (a,c)
+	else:
+		num = max(a,b)
+	return max(a,b,c)*100 + num *10 +min(a,b,c)
+        
+	
