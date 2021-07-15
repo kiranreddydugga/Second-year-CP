@@ -33,6 +33,55 @@
 # into a sorted hand.
 # Hint: Also, remember to use % to get the one's digit, and use //= to get rid of the one's digit.
 
-def playstep2(hand, dice):
+def getKthDigit(n, k):
+    n = int(n / 10 ** k)
+    return abs(n) % 10
+
+
+def handtodice(hand):
 	# your code goes here
-	pass
+
+	n1 = getKthDigit(hand, 2)
+	n2 = getKthDigit(hand, 1)
+	n3 = getKthDigit(hand, 0)
+	return (n1, n2, n3)
+
+
+def dicetoorderedhand(a, b, c):
+	# your code goes here
+	if a == max(a, b, c):
+		tmp = max(b, c)
+	elif b == max(a, b, c):
+		tmp = max(a, c)
+	else:
+		tmp = max(a, b)
+	return max(a, b, c) * 100 + tmp * 10 + min(a, b, c)
+
+
+def playstep2(hand, dice):
+
+	# your code goes here
+	n1, n2, n3 = handtodice(hand)
+
+	# if all dice matching
+	if ((hand % 111) == 0):
+		return hand, dice
+
+	# if two dice matching at starting
+	elif (((hand // 10) % 11) == 0):
+		n3 = dice % 10
+
+	# if two dice matching at the end
+	elif (((hand % 100) % 11) == 0):	
+		n1 = dice % 10
+		dice //= 10
+	
+	# if two dice matching at anytime in middle
+	else: 
+		highest = max(n1, n2, n3)
+		n1 = highest
+		n2 = dice % 10
+		n3 = ((dice % 100) - n2) // 10
+		dice //= 100
+		
+	return dicetoorderedhand(n1, n2, n3), dice
