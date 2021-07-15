@@ -7,4 +7,7 @@
 
 def handtodice(hand):
 	# your code goes here
-	pass
+	k1 = hand // 100
+	k2 = (hand % 100) // 10
+	k3 = (hand % 100) % 10
+	return k1, k2,k3
