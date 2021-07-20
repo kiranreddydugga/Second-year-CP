@@ -6,4 +6,8 @@
 
 def trianglearea(s1, s2, s3):
 	# your code goes here
-	pass
+    k = (s1+s2+s3)/2
+    area = ((k*(k-s1)*(k-s2)*(k-s3))**0.5)
+    return area
+print(trianglearea(20,15,30))
+	
