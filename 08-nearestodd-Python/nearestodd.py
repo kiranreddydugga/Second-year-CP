@@ -6,6 +6,21 @@
 
 
 def fun_nearestodd(n):
-	return 0
+    if type(n) == int:  
+        if n % 2 == 0:
+            return n - 1
+        else:
+            return n
+    else:  
+        temp = int(n) 
+        up_sub = abs(temp + 1 - n)
+        down_sub = abs(temp - 1 - n)
+        if temp % 2 != 0:  
+            return temp
+        else:  
+            if up_sub < down_sub:
+                return temp + 1
+            else:
+                return temp - 1
 
 
