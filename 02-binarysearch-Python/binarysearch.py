@@ -10,48 +10,24 @@ elements are in a strictly increasing order.
 Return the index of value, or -1 if the value
 doesn't exist in the list."""
 
-class Node(object):
-    def _init_(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
 
-class BinaryTree(object):
-    def _init_(self, root):
-        self.root = Node(root)
+   def binary_search(input_array, value): 
+    # Your code goes here
 
-    def search(self, find_val):
-        """
-        Return True if the find_val is in the tree and False otherwise.
-        """
-        # Your code goes here
-        return self.preorder_search(self.root,find_val)
+    input_array.sort()
+    low= 0
+    high = len(input_array) - 1
+   
+    while low<= high:
+        mid = (low+high ) // 2
+       
+        if input_array[mid]== value:
+            return mid
 
-    def print_tree(self):
-        """
-        Print out all tree nodes as they are visited in a pre-order traversal."""
-        # Your code goes here
-        self.preorder_print(self.root)
+        elif value < input_array[mid]:
+            high = mid - 1
 
-    def preorder_search(self, start, find_val):
-        """
-        Helper method - use this to create a recursive search solution.
-        """
-        # Your code goes here
-        if start ==None:
-            return False
-        if start.value == find_val:
-            return True
-        return self.preorder_search(start.left,find_val) or self.preorder_search(start.right,find_val)
+        else:
+            low= mid + 1
 
-
-    def preorder_print(self, start, traversal):
-        """
-        Helper method - use this to create a recursive print solution.
-        """
-        # Your code goes here
-        if start is None:
-            return 
-        print(start.value)
-        self.preorder-print(start.left)
-        self.preorder_print(start.right)
+    return -1
