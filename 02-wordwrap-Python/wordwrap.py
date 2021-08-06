@@ -16,8 +16,14 @@
 # -fgh""")
 
 
+import textwrap
 def fun_wordwrap(s, n):
-	return ""
+    str1=[]
+    # s=s
+    s= ("-".join(s.split()))
+    for j in range(0,len(s),n):
+        str1.append(s[j:j+n])
+    return('\n'.join(map(str,str1)))
 
 
  
