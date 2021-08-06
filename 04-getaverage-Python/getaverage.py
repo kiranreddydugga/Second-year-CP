@@ -8,7 +8,17 @@
 
 
 
-
 def fun_getaverage(s): 
-	return 0.0
+    a=[]
+    t=s.split(",")
+
+        
+    for i in t:
+        if i.isdigit():
+            a.append(int(i))
+    if len(a)==0:
+        return float(0)
+        
+    
+    return sum(a)/len(a)
 
