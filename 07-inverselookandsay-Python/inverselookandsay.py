@@ -19,13 +19,12 @@
 # inverseLookAndSay([(1,-1),(1,2),(1,7)]) == [-1,2,7]
 # inverseLookAndSay([(2,3),(1,8),(3,-10)]) == [3,3,8,-10,-10,-10]
 # inverseLookAndSay([(2,3),(1,8),(4,3)]) == [3,3,8,3,3,3,3])
-
 def inverselookandsay(a):
-    	# Your code goes here
-	res=[]
-	if a==[(),]:
-		return []
-	else:	
-		for i in a:
-			res=res+[i[1]]*i[0]
-	return res
+    # Your code goes here
+    e=[]
+    res=[]
+    if  a==[(),]:
+        return e
+    for i in a:
+        res=res+[i[1]]*i[0]
+    return res
